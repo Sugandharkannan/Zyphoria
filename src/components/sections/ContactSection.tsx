@@ -1,13 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Send, Phone, Mail, MapPin, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Send, Phone, Mail, MapPin, MessageCircle, CheckCircle2, Calendar } from "lucide-react";
+import Link from "next/link";
 
 const courses = ["Artificial Intelligence", "Machine Learning", "Generative AI", "Computer Vision", "MERN Stack", "Python Full Stack", "Cloud Computing", "DevOps & MLOps", "Data Science", "Corporate Training"];
 const contactInfo = [
-  { icon: Phone, label: "Call Us", lines: ["+91 98765 43210", "+91 87654 32109"], accent: "var(--c-gold)" },
+  { icon: Phone, label: "Call Us", lines: ["+91 98400 16117", "+91 98400 16040"], accent: "var(--c-gold)" },
   { icon: Mail, label: "Email Us", lines: ["info@Zyphora.tech", "placements@Zyphora.tech"], accent: "var(--c-gold-light)" },
-  { icon: MapPin, label: "Visit Us", lines: ["123, Tech Park, Anna Nagar", "Chennai, Tamil Nadu – 600040"], accent: "#34d399" },
+  { icon: MapPin, label: "Visit Us", lines: ["No 6/2, Plot No: 81, Flat No: A-3, Bopana Venkatrathinam Street,", "Golden George Nagar, Nerkunram, Chennai - 600107"], accent: "#34d399" },
 ];
 
 export default function ContactSection() {
@@ -16,9 +17,48 @@ export default function ContactSection() {
   const [loading, setLoading] = useState(false);
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm(p => ({ ...p, [k]: e.target.value }));
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1500);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const newBooking = {
+      id: Math.random().toString(36).substring(2, 9),
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      course: form.course || "General Inquiry",
+      message: form.message,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newBooking),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save booking to server");
+      }
+    } catch (err) {
+      console.warn("Server API failed, falling back to browser storage:", err);
+    }
+
+    // Always store in localStorage as well to guarantee immediate client visibility
+    try {
+      const existing = localStorage.getItem("zyphora_bookings");
+      const list = existing ? JSON.parse(existing) : [];
+      list.unshift(newBooking);
+      localStorage.setItem("zyphora_bookings", JSON.stringify(list));
+    } catch (err) {
+      console.error("Failed to save local backup:", err);
+    }
+
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 1500);
   };
 
   return (
@@ -43,13 +83,16 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-[1fr_360px] gap-10 items-start">
           <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             {submitted ? (
-              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="card rounded-2xl p-12 text-center">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="card rounded-2xl p-12 text-center flex flex-col items-center">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
                   style={{ background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.2)" }}>
                   <CheckCircle2 size={26} style={{ color: "var(--c-gold)" }} />
                 </div>
                 <h3 className="text-white font-bold text-xl mb-2">Message Sent!</h3>
-                <p className="text-white/40 text-[14px] leading-relaxed">Our team will reach out within 24 hours.</p>
+                <p className="text-white/40 text-[14px] leading-relaxed mb-6">Our team will reach out within 24 hours.</p>
+                <Link href="/bookings" className="btn-primary text-[13px] py-2.5 px-5 flex items-center gap-2">
+                  <Calendar size={14} /> View Bookings Dashboard
+                </Link>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="card rounded-2xl p-7 space-y-4">
@@ -60,7 +103,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <label className="block text-white/40 text-[12px] font-medium mb-1.5">Phone *</label>
-                    <input type="tel" required value={form.phone} onChange={set("phone")} placeholder="+91 98765 43210" className="input" />
+                    <input type="tel" required value={form.phone} onChange={set("phone")} placeholder="+91 98400 16117" className="input" />
                   </div>
                 </div>
                 <div>
@@ -101,7 +144,7 @@ export default function ContactSection() {
                 </div>
               </div>
             ))}
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/919840016117" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl font-semibold text-[14px] text-white hover:opacity-90 transition-opacity"
               style={{ background: "linear-gradient(135deg,#25d366,#128c7e)" }}>
               <MessageCircle size={17} /> Chat on WhatsApp

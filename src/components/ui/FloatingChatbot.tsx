@@ -6,9 +6,9 @@ import { MessageCircle, X, Send, Bot } from "lucide-react";
 const botReplies: Record<string, string> = {
   default: "Hi! I'm Aria 👋 I can help with course info, placement stats, fees, and demo bookings. What would you like to know?",
   courses: "We offer 12+ AI & software courses. Top picks: Artificial Intelligence, Generative AI, Computer Vision, and MERN Stack. Which interests you?",
-  placement: "Our placement rate is 94.5% with packages from 12 LPA to 48 LPA. We have 300+ hiring partners including Google, Microsoft & Amazon!",
+  placement: "Our placement rate is 94.5% with packages from 8 LPA to 18 LPA. We have 300+ hiring partners including Zoho, Freshworks & Razorpay!",
   fees: "Course fees range from ₹25,000 to ₹75,000. We offer No-Cost EMI and scholarship options. Want to know about a specific course?",
-  demo: "Book your free demo at 📞 +91 98765 43210 or fill the contact form. We'll call you back within 2 hours!",
+  demo: "Book your free demo at 📞 +91 98400 16117 or fill the contact form. We'll call you back within 2 hours!",
 };
 
 const quickReplies = ["View Courses", "Placement Stats", "Fees & EMI", "Book Demo"];
@@ -116,7 +116,7 @@ export default function FloatingChatbot() {
       </motion.button>
 
       {/* WhatsApp */}
-      <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer"
+      <a href="https://wa.me/919840016117" target="_blank" rel="noopener noreferrer"
         title="Chat on WhatsApp"
         className="fixed bottom-[72px] right-5 z-40 w-10 h-10 rounded-xl flex items-center justify-center shadow-lg transition-transform hover:scale-110"
         style={{ background: "#25d366" }}>

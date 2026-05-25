@@ -2,19 +2,21 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const quickLinks = [
-  { label: "Placements", href: "#placements" },
-  { label: "Courses", href: "#courses" },
-  { label: "Internships", href: "#internships" },
-  { label: "Projects", href: "#projects" },
-  { label: "Corporate", href: "#corporate" },
-  { label: "About", href: "#about" },
+  { label: "Placements", href: "/#placements" },
+  { label: "Internships", href: "/#courses" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Corporate", href: "/#corporate" },
+  { label: "About", href: "/#about" },
+  { label: "Bookings Dashboard", href: "/bookings" },
 ];
 
 const programs = [
-  "Full Stack Development", "Devops Engineering", "Generative AI",
-  "Data Science", "MERN Stack", "Cloud Computing", "DevOps & MLOps",
+  "MERN Stack Engineer", "Full Stack Developer", "HR Intern",
+  "DevOps Engineer", "Testing Engineer",
 ];
 
 const socials = [
@@ -25,6 +27,16 @@ const socials = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHome = pathname === "/" || pathname === "";
+
+  const getHref = (href: string) => {
+    if (isHome) {
+      return href.replace(/^\//, "");
+    }
+    return href;
+  };
+
   return (
     <footer className="relative overflow-hidden">
       <div className="h-px w-full" style={{ background: "linear-gradient(90deg,transparent,var(--c-gold),var(--c-gold-light),transparent)" }} />
@@ -62,20 +74,23 @@ export default function Footer() {
             <div>
               <h4 className="text-white font-semibold text-[13px] mb-4 uppercase tracking-wider">Quick Links</h4>
               <ul className="space-y-2.5">
-                {quickLinks.map(l => (
-                  <li key={l.label}>
-                    <a href={l.href} className="text-white/35 text-[13px] hover:text-white/70 transition-colors flex items-center gap-1.5 group">
-                      <ArrowRight size={11} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
+                {quickLinks.map(l => {
+                  const targetHref = getHref(l.href);
+                  return (
+                    <li key={l.label}>
+                      <Link href={targetHref} className="text-white/35 text-[13px] hover:text-white/70 transition-colors flex items-center gap-1.5 group">
+                        <ArrowRight size={11} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        {l.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
-            {/* Programs */}
+            {/* Roles */}
             <div>
-              <h4 className="text-white font-semibold text-[13px] mb-4 uppercase tracking-wider">Programs</h4>
+              <h4 className="text-white font-semibold text-[13px] mb-4 uppercase tracking-wider">Roles</h4>
               <ul className="space-y-2.5">
                 {programs.map(p => (
                   <li key={p}>
@@ -101,9 +116,9 @@ export default function Footer() {
                 </motion.button>
               </div>
               <div className="space-y-1.5">
-                <p className="text-white/35 text-[13px]">+91 98765 43210</p>
+                <p className="text-white/35 text-[13px]">+91 98400 16117</p>
                 <p className="text-white/35 text-[13px]">info@Zyphora.tech</p>
-                <p className="text-white/25 text-[12px] leading-relaxed">123, Tech Park, Anna Nagar<br />Chennai – 600040</p>
+                <p className="text-white/25 text-[12px] leading-relaxed">No 6/2, Plot No: 81, Flat No: A-3,<br />Bopana Venkatrathinam Street,<br />Golden George Nagar, Nerkunram, Chennai – 600107</p>
               </div>
             </div>
           </div>

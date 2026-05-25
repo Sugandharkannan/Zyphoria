@@ -1,77 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
-import { Briefcase, Code2, Globe, ArrowRight, Users, Palette, PenTool } from "lucide-react";
-
-const internships = [
-  { 
-  title: "UI/UX Design Intern", 
-  tech: ["Figma", "Adobe XD", "Wireframing", "Prototyping"], 
-  duration: "2 Months", 
-  stipend: "₹5,000/mo", 
-  type: "Remote", 
-  icon: Palette 
-},
-
-{ 
-  title: "Graphic Design Intern", 
-  tech: ["Photoshop", "Illustrator", "Canva", "Brand Design"], 
-  duration: "3 Months", 
-  stipend: "₹4,000/mo", 
-  type: "Hybrid", 
-  icon: PenTool 
-},
-
-{ 
-  title: "Full Stack Development Intern", 
-  tech: ["HTML", "CSS", "JavaScript", "React"], 
-  duration: "4 Months", 
-  stipend: "₹6,000/mo", 
-  type: "Remote", 
-  icon: Code2 
-},
-
-{ 
-  title: "MERN Stack Intern", 
-  tech: ["MongoDB", "Express.js", "React", "Node.js"], 
-  duration: "3 Months", 
-  stipend: "₹7,000/mo", 
-  type: "Hybrid", 
-  icon: Globe 
-},
-
-{ 
-  title: "Human Resource Intern", 
-  tech: ["Recruitment", "Communication", "Employee Handling", "MS Office"], 
-  duration: "2 Months", 
-  stipend: "₹4,000/mo", 
-  type: "On-site", 
-  icon: Briefcase 
-},
-
-{ 
-  title: "HR & Operations Intern", 
-  tech: ["Hiring", "Team Management", "Documentation", "Scheduling"], 
-  duration: "3 Months", 
-  stipend: "₹5,000/mo", 
-  type: "Remote", 
-  icon: Users 
-}
-];
-
-const typeTag: Record<string, string> = {
-  Remote: "tag-green",
-  Hybrid: "tag-light",
-  "On-site": "tag-gold",
-};
+import Image from "next/image";
+import { ArrowRight, Briefcase } from "lucide-react";
 
 export default function InternshipSection() {
   return (
-    <section id="internships" className="section grid-bg">
-      <div className="blob-gold" style={{ width: 400, height: 400, top: "30%", right: 0 }} />
-      <div className="container relative z-10">
+    <section id="internships" className="section" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <div className="container">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="section-badge mx-auto"
@@ -83,81 +21,146 @@ export default function InternshipSection() {
             className="font-display font-black text-white leading-tight tracking-tight mb-3"
             style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)" }}
           >
-            Real-World <span className="g-text">Internship</span> Programs
+            Build Your Career With <span className="g-text">Real Experience</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="text-white/40 text-[14px] max-w-md mx-auto leading-relaxed"
           >
-            Work on actual AI products with startups and companies. Build your portfolio while earning a stipend.
+            Work on live AI products alongside industry professionals. Earn a stipend and build a portfolio that stands out.
           </motion.p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {internships.map((item, i) => (
+        {/* Banner Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative w-full rounded-3xl overflow-hidden"
+          style={{
+            border: "1px solid rgba(212,175,55,0.18)",
+            boxShadow: "0 0 80px rgba(212,175,55,0.08), 0 0 0 1px rgba(255,255,255,0.04)",
+          }}
+        >
+          {/* Image */}
+          <div className="relative w-full" style={{ aspectRatio: "16/6", minHeight: 280 }}>
+            <Image
+              src="/internship-banner.png"
+              alt="Internship Program at Zyphora Technologies"
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Overlay gradient */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.45) 55%, rgba(10,10,10,0.15) 100%)",
+              }}
+            />
+          </div>
+
+          {/* Overlay content */}
+          <div
+            className="absolute inset-0 flex flex-col justify-center"
+            style={{ padding: "clamp(1.5rem, 5vw, 4rem)" }}
+          >
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-[11px] uppercase tracking-[0.3em] font-semibold mb-3"
+              style={{ color: "var(--c-gold)" }}
+            >
+              Zyphora Technologies · Internship Program
+            </motion.p>
+
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.28 }}
+              className="font-display font-black text-white leading-tight mb-4"
+              style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.4rem)", maxWidth: 520 }}
+            >
+              Gain Real-World Skills.<br />
+              <span style={{ color: "var(--c-gold)" }}>Launch Your Tech Career.</span>
+            </motion.h3>
+
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.34 }}
+              className="text-white/50 text-[13px] leading-relaxed mb-6"
+              style={{ maxWidth: 400 }}
+            >
+              Join our structured internship programs in Full Stack, MERN, UI/UX, and HR — with mentorship, stipend, and a completion certificate.
+            </motion.p>
+
+            {/* Stats row */}
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.07, duration: 0.5 }}
-              className="card rounded-2xl p-5 group shine"
+              transition={{ delay: 0.4 }}
+              className="flex flex-wrap gap-6 mb-7"
             >
-              {/* Top */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.15)" }}>
-                  <item.icon size={17} style={{ color: "var(--c-gold)" }} />
+              {[
+                { value: "6+", label: "Domains" },
+                { value: "₹7K/mo", label: "Max Stipend" },
+                { value: "4 Months", label: "Max Duration" },
+                { value: "100%", label: "Certificate" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-black text-white text-[1.3rem] leading-none" style={{ fontFamily: "var(--font-display)" }}>
+                    {stat.value}
+                  </p>
+                  <p className="text-white/35 text-[10px] uppercase tracking-wider mt-0.5">{stat.label}</p>
                 </div>
-                <span className={`tag ${typeTag[item.type]}`}>{item.type}</span>
-              </div>
+              ))}
+            </motion.div>
 
-              <h3 className="text-white font-semibold text-[15px] mb-3 group-hover:text-[var(--c-gold)] transition-colors">
-                {item.title}
-              </h3>
-
-              {/* Tech tags */}
-              <div className="flex flex-wrap gap-1.5 mb-5">
-                {item.tech.map(t => (
-                  <span key={t} className="px-2.5 py-1 rounded-md text-[11px] font-medium text-white/40"
-                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              {/* Footer */}
-              <div className="flex items-center justify-between pt-4 mb-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-                <div>
-                  <p className="text-white/30 text-[10px] uppercase tracking-wider font-medium">Duration</p>
-                  <p className="text-white font-semibold text-[13px] mt-0.5">{item.duration}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-white/30 text-[10px] uppercase tracking-wider font-medium">Stipend</p>
-                  <p className="font-bold text-[14px] mt-0.5" style={{ color: "var(--c-gold)" }}>{item.stipend}</p>
-                </div>
-              </div>
-
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.46 }}
+            >
               <button
-                className="w-full py-2.5 rounded-xl text-[13px] font-semibold flex items-center justify-center gap-2 transition-all"
-                style={{ background: "rgba(212,175,55,0.07)", border: "1px solid rgba(212,175,55,0.18)", color: "rgba(255,255,255,0.7)" }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLButtonElement).style.background = "linear-gradient(135deg, var(--c-gold), var(--c-gold-light))";
-                  (e.currentTarget as HTMLButtonElement).style.color = "#000";
-                  (e.currentTarget as HTMLButtonElement).style.borderColor = "transparent";
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-[13px] transition-all"
+                style={{
+                  background: "linear-gradient(135deg, var(--c-gold), var(--c-gold-light))",
+                  color: "#000",
+                  boxShadow: "0 4px 24px rgba(212,175,55,0.25)",
                 }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLButtonElement).style.background = "rgba(212,175,55,0.07)";
-                  (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.7)";
-                  (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(212,175,55,0.18)";
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 6px 32px rgba(212,175,55,0.45)";
+                  (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 24px rgba(212,175,55,0.25)";
+                  (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
                 }}
               >
-                Apply Now <ArrowRight size={13} />
+                Apply Now <ArrowRight size={14} />
               </button>
             </motion.div>
-          ))}
-        </div>
+          </div>
+
+          {/* Gold corner accent */}
+          <div
+            className="absolute top-0 right-0 w-40 h-40 pointer-events-none"
+            style={{
+              background: "radial-gradient(circle at top right, rgba(212,175,55,0.12), transparent 70%)",
+            }}
+          />
+        </motion.div>
+
       </div>
     </section>
   );

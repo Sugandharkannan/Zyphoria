@@ -1,25 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Clock, BarChart2, BookOpen, ArrowRight } from "lucide-react";
+import { Clock, Briefcase, Coins, ArrowRight } from "lucide-react";
 
-const categories = ["All", "AI & ML", "Full Stack", "Cloud & DevOps", "Data Science"];
+const categories = ["All", "Tech", "Non-Tech"];
 
-const courses = [
-  { id: "01", title: "Artificial Intelligence", category: "AI & ML", duration: "6 Months", level: "Intermediate", tools: ["Python", "TensorFlow", "PyTorch", "Scikit-learn"], tag: "Most Popular", tagStyle: "tag-gold", placement: 95 },
-  { id: "02", title: "Machine Learning", category: "AI & ML", duration: "4 Months", level: "Beginner", tools: ["Python", "Scikit-learn", "Pandas", "NumPy"], tag: "Bestseller", tagStyle: "tag-light", placement: 92 },
-  { id: "03", title: "Generative AI & LLMs", category: "AI & ML", duration: "3 Months", level: "Advanced", tools: ["LangChain", "OpenAI", "HuggingFace", "RAG"], tag: "New", tagStyle: "tag-green", placement: 97 },
-  { id: "04", title: "Computer Vision", category: "AI & ML", duration: "4 Months", level: "Intermediate", tools: ["YOLO", "OpenCV", "TensorFlow", "CNNs"], tag: "Trending", tagStyle: "tag-gold", placement: 94 },
-  { id: "05", title: "MERN Stack", category: "Full Stack", duration: "5 Months", level: "Beginner", tools: ["MongoDB", "Express", "React", "Node.js"], tag: "Job Ready", tagStyle: "tag-green", placement: 88 },
-  { id: "06", title: "Python Full Stack", category: "Full Stack", duration: "5 Months", level: "Beginner", tools: ["Python", "Django", "React", "PostgreSQL"], tag: "Popular", tagStyle: "tag-light", placement: 87 },
-  { id: "07", title: "Cloud Computing", category: "Cloud & DevOps", duration: "3 Months", level: "Intermediate", tools: ["AWS", "Azure", "GCP", "Docker"], tag: "High Demand", tagStyle: "tag-gold", placement: 90 },
-  { id: "08", title: "DevOps & MLOps", category: "Cloud & DevOps", duration: "3 Months", level: "Advanced", tools: ["Kubernetes", "Jenkins", "Terraform", "MLflow"], tag: "Trending", tagStyle: "tag-green", placement: 91 },
-  { id: "09", title: "Data Science", category: "Data Science", duration: "6 Months", level: "Intermediate", tools: ["Python", "Tableau", "SQL", "Statistics"], tag: "Top Pick", tagStyle: "tag-light", placement: 93 },
+const internships = [
+  { id: "01", title: "MERN Stack Engineer", category: "Tech", duration: "3 Months", level: "Beginner", tools: ["MongoDB", "Express", "React", "Node.js"], tag: "Most Popular", tagStyle: "tag-gold", stipend: 18000 },
+  { id: "02", title: "Full Stack Developer", category: "Tech", duration: "6 Months", level: "Intermediate", tools: ["Python", "Django", "React", "PostgreSQL"], tag: "Bestseller", tagStyle: "tag-light", stipend: 20000 },
+  { id: "03", title: "HR Intern", category: "Non-Tech", duration: "3 Months", level: "Beginner", tools: ["Recruitment", "Sourcing", "Screening", "HR Operations"], tag: "Active", tagStyle: "tag-green", stipend: 15000 },
+  { id: "04", title: "DevOps Engineer", category: "Tech", duration: "4 Months", level: "Intermediate", tools: ["Docker", "Kubernetes", "AWS", "Jenkins"], tag: "Trending", tagStyle: "tag-gold", stipend: 19000 },
+  { id: "05", title: "Testing Engineer", category: "Tech", duration: "3 Months", level: "Beginner", tools: ["Selenium", "QA Manual/Automation", "Postman", "Jest"], tag: "New", tagStyle: "tag-light", stipend: 16000 },
 ];
 
 export default function CoursesSection() {
   const [active, setActive] = useState("All");
-  const filtered = active === "All" ? courses : courses.filter(c => c.category === active);
+  const filtered = active === "All" ? internships : internships.filter(c => c.category === active);
 
   return (
     <section id="courses" className="section" style={{ background: "var(--c-bg)" }}>
@@ -32,20 +28,20 @@ export default function CoursesSection() {
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="section-badge section-badge-alt mx-auto"
           >
-            <BookOpen size={11} /> Our Programs
+            <Briefcase size={11} /> Internship Openings
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.06 }}
             className="font-display font-black text-white leading-tight tracking-tight mb-3"
             style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)" }}
           >
-            Industry-Ready <span className="g-text-r">Courses</span>
+            Internship <span className="g-text-r">Opportunities</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="text-white/40 text-[14px] max-w-md mx-auto leading-relaxed"
           >
-            Every program includes live projects, internship support, and dedicated placement assistance.
+            Get hands-on industry experience with our structured internship roles featuring stipends from ₹15,000 to ₹20,000.
           </motion.p>
         </div>
 
@@ -94,7 +90,7 @@ export default function CoursesSection() {
                     <Clock size={11} /> {course.duration}
                   </span>
                   <span className="flex items-center gap-1.5 text-white/35 text-[12px]">
-                    <BarChart2 size={11} /> {course.level}
+                    <Briefcase size={11} /> {course.level}
                   </span>
                 </div>
               </div>
@@ -110,14 +106,14 @@ export default function CoursesSection() {
                   ))}
                 </div>
 
-                {/* Placement bar */}
+                {/* Stipend bar */}
                 <div className="mb-4">
-                  <div className="flex justify-between mb-1.5">
-                    <span className="text-white/30 text-[11px]">Placement Rate</span>
-                    <span className="text-[11px] font-semibold" style={{ color: "var(--c-gold)" }}>{course.placement}%</span>
+                  <div className="flex justify-between items-center mb-1.5">
+                    <span className="text-white/30 text-[11px] flex items-center gap-1"><Coins size={11} /> Monthly Stipend</span>
+                    <span className="text-[13px] font-bold" style={{ color: "var(--c-gold)" }}>₹{course.stipend.toLocaleString('en-IN')}</span>
                   </div>
                   <div className="progress-bar">
-                    <div className="progress-fill" style={{ width: `${course.placement}%` }} />
+                    <div className="progress-fill" style={{ width: `${((course.stipend - 10000) / 10000) * 100}%` }} />
                   </div>
                 </div>
 
@@ -135,7 +131,7 @@ export default function CoursesSection() {
                     (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(212,175,55,0.18)";
                   }}
                 >
-                  Enroll Now <ArrowRight size={13} />
+                  Apply Now <ArrowRight size={13} />
                 </button>
               </div>
             </motion.div>
@@ -147,7 +143,7 @@ export default function CoursesSection() {
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="text-center mt-10"
         >
-          <a href="#contact" className="btn-primary">View All 20+ Courses <ArrowRight size={14} /></a>
+          <a href="#contact" className="btn-primary">Apply For Internships <ArrowRight size={14} /></a>
         </motion.div>
       </div>
     </section>
