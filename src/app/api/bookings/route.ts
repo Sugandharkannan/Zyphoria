@@ -2,10 +2,20 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
+interface Booking {
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  course: string;
+  message: string;
+  timestamp: string;
+}
+
 const filePath = path.join(process.cwd(), "bookings.json");
 
 // Helper to read bookings from JSON file
-function readBookings(): any[] {
+function readBookings(): Booking[] {
   try {
     if (!fs.existsSync(filePath)) {
       return [];
@@ -19,7 +29,7 @@ function readBookings(): any[] {
 }
 
 // Helper to write bookings to JSON file
-function writeBookings(bookings: any[]) {
+function writeBookings(bookings: Booking[]) {
   try {
     fs.writeFileSync(filePath, JSON.stringify(bookings, null, 2), "utf-8");
   } catch (error) {
@@ -38,7 +48,7 @@ function isAuthorized(request: Request): boolean {
     const credentials = Buffer.from(base64Credentials, "base64").toString("ascii");
     const [userId, password] = credentials.split(":");
     return userId === "admin" && password === "admin123";
-  } catch (e) {
+  } catch {
     return false;
   }
 }
@@ -89,7 +99,7 @@ export async function DELETE(request: Request) {
     }
 
     let bookings = readBookings();
-    bookings = bookings.filter((b: any) => b.id !== id);
+    bookings = bookings.filter((b: Booking) => b.id !== id);
     writeBookings(bookings);
     
     return NextResponse.json({ success: true });

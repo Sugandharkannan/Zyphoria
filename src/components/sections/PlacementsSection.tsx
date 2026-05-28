@@ -68,7 +68,7 @@ export default function PlacementsSection() {
           </motion.h2>
           <motion.p {...fadeUp(0.1)}
             className="text-white/45 text-[15px] leading-relaxed max-w-xl mx-auto">
-            We don't just teach — we place. With 300+ hiring partners and a structured placement process, your career transformation is our #1 priority.
+            We don&apos;t just teach — we place. With 300+ hiring partners and a structured placement process, your career transformation is our #1 priority.
           </motion.p>
         </div>
 

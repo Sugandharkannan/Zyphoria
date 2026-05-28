@@ -1,18 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Search,
   Trash2,
   Download,
-  Calendar,
   Users,
   TrendingUp,
   Layers,
   ArrowLeft,
   ChevronRight,
   Database,
-  UserCheck,
   Lock,
   User,
   LogIn
@@ -146,12 +144,16 @@ export default function BookingsPage() {
 
   // Hydration safety and cached credentials check
   useEffect(() => {
-    setMounted(true);
-    const cachedUser = sessionStorage.getItem("zyphora_admin_user");
-    const cachedPass = sessionStorage.getItem("zyphora_admin_pass");
-    if (cachedUser && cachedPass) {
-      loadData(cachedUser, cachedPass);
-    }
+    const timer = setTimeout(() => {
+      setMounted(true);
+      const cachedUser = sessionStorage.getItem("zyphora_admin_user");
+      const cachedPass = sessionStorage.getItem("zyphora_admin_pass");
+      if (cachedUser && cachedPass) {
+        loadData(cachedUser, cachedPass);
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLoginSubmit = (e: React.FormEvent) => {
