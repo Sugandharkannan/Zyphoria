@@ -65,7 +65,7 @@ export default function HeroSection() {
               <motion.p {...fadeUp(0.28)}
                 className="text-[15px] leading-relaxed mb-9 max-w-[440px]"
                 style={{ color: "rgba(255,255,255,0.7)" }}>
-                Industry-ready AI training with{" "}
+                Industry-ready training with{" "}
                 <span style={{ color: "var(--c-gold)", fontWeight: 600 }}>guaranteed placement support</span>.
                 Live projects, 300+ hiring partners, and a career that starts before you graduate.
               </motion.p>
