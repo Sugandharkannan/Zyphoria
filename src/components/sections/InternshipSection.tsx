@@ -27,7 +27,7 @@ export default function InternshipSection() {
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="text-white/40 text-[14px] max-w-md mx-auto leading-relaxed"
           >
-            Work on live AI products alongside industry professionals. Earn a stipend and build a portfolio that stands out.
+            Work on live software products alongside industry professionals. Earn a stipend and build a portfolio that stands out.
           </motion.p>
         </div>
 

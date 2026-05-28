@@ -5,7 +5,7 @@ import { MessageCircle, X, Send, Bot } from "lucide-react";
 
 const botReplies: Record<string, string> = {
   default: "Hi! I'm Aria 👋 I can help with course info, placement stats, fees, and demo bookings. What would you like to know?",
-  courses: "We offer 12+ AI & software courses. Top picks: Artificial Intelligence, Generative AI, Computer Vision, and MERN Stack. Which interests you?",
+  courses: "We offer 12+ software engineering and cloud courses. Top picks: MERN Stack, Python Full Stack, Cloud Computing, and DevOps. Which interests you?",
   placement: "Our placement rate is 94.5% with packages from 8 LPA to 18 LPA. We have 300+ hiring partners including Zoho, Freshworks & Razorpay!",
   fees: "Course fees range from ₹25,000 to ₹75,000. We offer No-Cost EMI and scholarship options. Want to know about a specific course?",
   demo: "Book your free demo at 📞 +91 98400 16117 or fill the contact form. We'll call you back within 2 hours!",
@@ -49,7 +49,7 @@ export default function FloatingChatbot() {
                   <Bot size={15} className="text-black" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-[13px]">Aria AI</p>
+                  <p className="text-white font-semibold text-[13px]">Aria</p>
                   <p className="text-[11px]" style={{ color: "var(--c-gold)" }}>● Online</p>
                 </div>
               </div>

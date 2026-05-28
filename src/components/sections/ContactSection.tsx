@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Send, Phone, Mail, MapPin, MessageCircle, CheckCircle2, Calendar } from "lucide-react";
 import Link from "next/link";
 
-const courses = ["Artificial Intelligence", "Machine Learning", "Generative AI", "Computer Vision", "MERN Stack", "Python Full Stack", "Cloud Computing", "DevOps & MLOps", "Data Science", "Corporate Training"];
+const courses = ["MERN Stack", "Python Full Stack", "Cloud Computing", "DevOps & Systems", "Software Testing", "UI/UX Design", "Data Analytics", "Corporate Training"];
 const contactInfo = [
   { icon: Phone, label: "Call Us", lines: ["+91 98400 16117", "+91 98400 16040"], accent: "var(--c-gold)" },
   { icon: Mail, label: "Email Us", lines: ["info@Zyphora.tech", "placements@Zyphora.tech"], accent: "var(--c-gold-light)" },

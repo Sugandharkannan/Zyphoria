@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 
 const testimonials = [
-  { name: "Mohammed Zubair", role: "ML Engineer", company: "Freshworks", pkg: "16 LPA", location: "Hyderabad", batch: "2023", initials: "MZ", text: "The Computer Vision course content is genuinely top-notch — real projects, real datasets. My YOLO portfolio project alone got me shortlisted at 5 companies. The trainers have real industry experience." },
+  { name: "Mohammed Zubair", role: "Full Stack Engineer", company: "Freshworks", pkg: "16 LPA", location: "Hyderabad", batch: "2023", initials: "MZ", text: "The Full Stack Web Development course content is genuinely top-notch — real projects, real-world databases. My eCommerce portfolio project alone got me shortlisted at 5 companies. The trainers have real industry experience." },
   { name: "Divya Priya", role: "Cloud Architect", company: "IBM", pkg: "15 LPA", location: "Chennai", batch: "2024", initials: "DP", text: "Joined as a fresher with zero cloud knowledge. The AWS course combined with placement prep completely transformed my prospects. The LinkedIn optimisation they helped with tripled my recruiter messages." },
-  { name: "Ravi Teja", role: "Full Stack Developer", company: "Zoho", pkg: "18 LPA", location: "Coimbatore", batch: "2023", initials: "RT", text: "Best career investment I've made. The MERN Stack + AI integration course was exactly what the market needed. Got placed just 45 days after completing the program. Couldn't recommend it more." },
+  { name: "Ravi Teja", role: "Full Stack Developer", company: "Zoho", pkg: "18 LPA", location: "Coimbatore", batch: "2023", initials: "RT", text: "Best career investment I've made. The MERN Stack development course was exactly what the market needed. Got placed just 45 days after completing the program. Couldn't recommend it more." },
 ];
 
 export default function TestimonialsSection() {

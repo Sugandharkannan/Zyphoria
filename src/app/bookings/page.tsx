@@ -30,15 +30,13 @@ interface Booking {
 }
 
 const coursesList = [
-  "Artificial Intelligence",
-  "Machine Learning",
-  "Generative AI",
-  "Computer Vision",
   "MERN Stack",
   "Python Full Stack",
   "Cloud Computing",
-  "DevOps & MLOps",
-  "Data Science",
+  "DevOps & Systems",
+  "Software Testing",
+  "UI/UX Design",
+  "Data Analytics",
   "Corporate Training"
 ];
 
@@ -48,8 +46,8 @@ const sampleBookings: Booking[] = [
     name: "Aarav Sharma",
     phone: "+91 9840016117",
     email: "aarav.sharma@example.com",
-    course: "Generative AI",
-    message: "Interested in learning LLM fine-tuning and prompt engineering. Looking for a weekend batch.",
+    course: "DevOps & Systems",
+    message: "Interested in learning Docker, Kubernetes, CI/CD, and Cloud. Looking for a weekend batch.",
     timestamp: new Date(Date.now() - 3600000 * 2).toISOString() // 2 hours ago
   },
   {
@@ -66,7 +64,7 @@ const sampleBookings: Booking[] = [
     name: "Rohan Das",
     phone: "+91 76543 34567",
     email: "rohan.das@example.com",
-    course: "Machine Learning",
+    course: "Cloud Computing",
     message: "Seeking corporate training syllabus options for a team of 5 software engineers.",
     timestamp: new Date(Date.now() - 86400000 * 1.5).toISOString() // 1.5 days ago
   },
@@ -75,7 +73,7 @@ const sampleBookings: Booking[] = [
     name: "Sneha Nair",
     phone: "+91 95432 45678",
     email: "sneha.nair@example.com",
-    course: "Data Science",
+    course: "Data Analytics",
     message: "Looking for details on the no-cost EMI options and job guarantee program.",
     timestamp: new Date(Date.now() - 86400000 * 3).toISOString() // 3 days ago
   }

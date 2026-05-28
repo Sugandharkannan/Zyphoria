@@ -10,7 +10,6 @@ const marqueeLogos = [
   { src: "/logos/logo_amazon.png",    alt: "Amazon" },
   { src: "/logos/logo_meta.png",      alt: "Meta" },
   { src: "/logos/logo_nvidia.png",    alt: "NVIDIA" },
-  { src: "/logos/logo_openai.png",    alt: "OpenAI" },
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -40,7 +39,7 @@ export default function HeroSection() {
             <div className="max-w-xl">
               <motion.div {...fadeUp(0)} className="section-badge mb-6">
                 <Sparkles size={11} />
-                India&apos;s #1 AI Placement Partner
+                India&apos;s #1 Tech Placement Partner
               </motion.div>
 
               {/* Headline */}
@@ -130,8 +129,8 @@ export default function HeroSection() {
                 <p className="text-[10px] font-semibold uppercase tracking-widest mb-3" style={{ color: "#94a3b8" }}>Recent Placements</p>
                 <div className="space-y-2.5">
                   {[
-                    { name: "Rahul S.", role: "AI Engineer", co: "Zoho", pkg: "18 LPA" },
-                    { name: "Priya M.", role: "ML Engineer", co: "Freshworks", pkg: "16 LPA" },
+                    { name: "Rahul S.", role: "Software Engineer", co: "Zoho", pkg: "18 LPA" },
+                    { name: "Priya M.", role: "Full Stack Developer", co: "Freshworks", pkg: "16 LPA" },
                     { name: "Arjun K.", role: "Data Scientist", co: "Razorpay", pkg: "15 LPA" },
                   ].map((s, i) => (
                     <motion.div key={s.name}

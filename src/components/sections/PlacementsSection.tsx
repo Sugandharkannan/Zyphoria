@@ -12,7 +12,7 @@ const roadmap = [
 ];
 
 const students = [
-  { name: "Karthik R.", role: "AI Engineer", company: "TCS", pkg: "18 LPA", batch: "2024", initials: "KR" },
+  { name: "Karthik R.", role: "Software Engineer", company: "TCS", pkg: "18 LPA", batch: "2024", initials: "KR" },
   { name: "Sneha V.", role: "Graphic Designer", company: "Accenture", pkg: "12 LPA", batch: "2024", initials: "SV" },
   { name: "Mohammed Z.", role: "UI/UX Designer", company: "Cognizant", pkg: "10 LPA", batch: "2025", initials: "MZ" },
   { name: "Divya P.", role: "Data Analyst", company: "IBM", pkg: "08 LPA", batch: "2025", initials: "DP" },
