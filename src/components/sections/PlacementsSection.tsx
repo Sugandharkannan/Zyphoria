@@ -2,22 +2,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
-import { CheckCircle2, Trophy, Target, Rocket, ArrowRight, Star, TrendingUp } from "lucide-react";
+import { CheckCircle2, Trophy, Target, Rocket, ArrowRight, TrendingUp } from "lucide-react";
 
 const roadmap = [
   { step: "01", title: "Enroll & Assess", desc: "Profile evaluation and skill gap analysis to build your personal learning path.", icon: Target },
   { step: "02", title: "Train & Build", desc: "Hands-on training with real industry datasets and live capstone projects.", icon: Rocket },
   { step: "03", title: "Interview Prep", desc: "Mock interviews, DSA, aptitude training, and HR round preparation.", icon: Trophy },
   { step: "04", title: "Get Placed", desc: "Direct referrals to 300+ verified hiring partners across India.", icon: TrendingUp },
-];
-
-const students = [
-  { name: "Karthik R.", role: "Software Engineer", company: "TCS", pkg: "18 LPA", batch: "2024", initials: "KR" },
-  { name: "Sneha V.", role: "Graphic Designer", company: "Accenture", pkg: "12 LPA", batch: "2024", initials: "SV" },
-  { name: "Mohammed Z.", role: "UI/UX Designer", company: "Cognizant", pkg: "10 LPA", batch: "2025", initials: "MZ" },
-  { name: "Divya P.", role: "Data Analyst", company: "IBM", pkg: "08 LPA", batch: "2025", initials: "DP" },
-  { name: "Ravi T.", role: "Full Stack Dev", company: "Wipro", pkg: "18 LPA", batch: "2025", initials: "RT" },
-  { name: "Ananya K.", role: "DevOps Engineer", company: "Capgemini", pkg: "09 LPA", batch: "2025", initials: "AK" },
 ];
 
 const features = [
@@ -97,7 +88,7 @@ export default function PlacementsSection() {
         {/* ── Stats ── */}
         <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {[
-            { val: 94, suffix: "%", label: "Placement Rate" },
+            { val: 100, suffix: "%", label: "Placement Rate" },
             { val: 18, suffix: " LPA", label: "Highest Package" },
             { val: 300, suffix: "+", label: "Hiring Partners" },
             { val: 100, suffix: "+", label: "Students Placed" },
@@ -114,44 +105,7 @@ export default function PlacementsSection() {
           ))}
         </div>
 
-        {/* ── Success Stories ── */}
-        <motion.h3 {...fadeUp(0)} className="text-white font-semibold text-lg mb-6 text-center">
-          Recent <span className="g-text">Success Stories</span>
-        </motion.h3>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
-          {students.map((s, i) => (
-            <motion.div key={s.name} {...fadeUp(i * 0.06)}
-              className="card rounded-2xl p-5 shine">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-bold text-white flex-shrink-0"
-                  style={{ background: "linear-gradient(135deg, rgba(212,175,55,0.12), rgba(247,215,116,0.08))", border: "1px solid rgba(212,175,55,0.2)" }}>
-                  {s.initials}
-                </div>
-                <div>
-                  <p className="text-white font-semibold text-[14px]">{s.name}</p>
-                  <p className="text-white/40 text-[12px]">{s.role}</p>
-                </div>
-              </div>
-              <div className="flex items-end justify-between pt-3.5" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-                <div>
-                  <p className="text-white/35 text-[10px] font-medium uppercase tracking-wider mb-0.5">Placed at</p>
-                  <p className="text-white font-semibold text-[14px]">{s.company}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-white/35 text-[10px] font-medium uppercase tracking-wider mb-0.5">Package</p>
-                  <p className="font-black text-[1.4rem] g-text leading-none">{s.pkg}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-1 mt-3">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={11} className="fill-yellow-400 text-yellow-400" />
-                ))}
-                <span className="text-white/25 text-[11px] ml-1.5">Batch {s.batch}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
         {/* ── Features + Partners ── */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -180,15 +134,25 @@ export default function PlacementsSection() {
             <h3 className="text-white font-semibold text-lg mb-6">
               Our <span className="g-text">Hiring Partners</span>
             </h3>
-            <div className="grid grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5">
               {companies.map((c, i) => (
                 <motion.div key={c}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.03 }}
-                  whileHover={{ scale: 1.04 }}
-                  className="card-flat rounded-xl py-2.5 px-3 text-center text-[12px] font-medium text-white/45 hover:text-white/80 transition-colors cursor-default">
+                  whileHover={{ 
+                    scale: 1.05, 
+                    borderColor: "var(--c-gold)", 
+                    boxShadow: "0 10px 30px rgba(212,175,55,0.15)",
+                    background: "rgba(212,175,55,0.05)"
+                  }}
+                  className="card rounded-xl py-4 px-5 text-center text-[14px] md:text-[15px] font-bold text-white/70 hover:text-white transition-all cursor-default flex items-center justify-center min-h-[64px]"
+                  style={{
+                    borderColor: "rgba(255,255,255,0.06)",
+                    background: "rgba(255,255,255,0.02)",
+                  }}
+                >
                   {c}
                 </motion.div>
               ))}
