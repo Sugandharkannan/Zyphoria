@@ -7,7 +7,7 @@ import Link from "next/link";
 const courses = ["MERN Stack", "Python Full Stack", "Cloud Computing", "DevOps & Systems", "Software Testing", "UI/UX Design", "Data Analytics", "Corporate Training"];
 const contactInfo = [
   { icon: Phone, label: "Call Us", lines: ["+91 98400 16117", "+91 98400 16040"], accent: "var(--c-gold)" },
-  { icon: Mail, label: "Email Us", lines: ["info@Zyphora.tech", "placements@Zyphora.tech"], accent: "var(--c-gold-light)" },
+  { icon: Mail, label: "Email Us", lines: ["hr@zyphoratechnologies.in", "info@zyphoratechnologies.in"], accent: "var(--c-gold-light)" },
   { icon: MapPin, label: "Visit Us", lines: ["No 6/2, Plot No: 81, Flat No: A-3, Bopana Venkatrathinam Street,", "Golden George Nagar, Nerkunram, Chennai - 600107"], accent: "#34d399" },
 ];
 
