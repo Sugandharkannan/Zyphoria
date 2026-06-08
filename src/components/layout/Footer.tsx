@@ -117,7 +117,7 @@ export default function Footer() {
               </div>
               <div className="space-y-1.5">
                 <p className="text-white/35 text-[13px]">+91 98400 16117</p>
-                <p className="text-white/35 text-[13px]">info@Zyphora.tech</p>
+                <p className="text-white/35 text-[13px]">info@zyphoratechnologies.in</p>
                 <p className="text-white/25 text-[12px] leading-relaxed">No 6/2, Plot No: 81, Flat No: A-3,<br />Bopana Venkatrathinam Street,<br />Golden George Nagar, Nerkunram, Chennai – 600107</p>
               </div>
             </div>
